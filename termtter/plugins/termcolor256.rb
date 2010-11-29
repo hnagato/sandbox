@@ -15,7 +15,7 @@ class TermColor::MyListener
       case name
       when /^([fb])(\d+)$/
         fb = $1 == 'f' ? 38 : 48
-        "\e[#{fb};5;#{$1.to_i}m"
+        "\e[#{fb};5;#{$2.to_i}m"
       when /^[^0-9]?(\d+)$/
         "\e[38;5;#{$1.to_i}m"
       end
@@ -24,6 +24,6 @@ class TermColor::MyListener
 end
 
 #(0..256).each do |c|
-#  print "\e[48;5;#{c}m#{c}	"
+#  print "\e[38;5;#{c}m#{c}	"
 #  puts "" if c % 10 == 0
 #end
